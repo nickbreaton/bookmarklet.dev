@@ -17,12 +17,21 @@ dependencies:
   '@codemirror/view':
     specifier: ^6.21.4
     version: 6.21.4
+  '@solid-primitives/local-store':
+    specifier: ^1.1.4
+    version: 1.1.4(solid-js@1.8.3)
+  '@solid-primitives/storage':
+    specifier: ^2.1.1
+    version: 2.1.1(solid-js@1.8.3)(solid-start@0.3.8)
   '@solidjs/meta':
     specifier: ^0.28.6
     version: 0.28.6(solid-js@1.8.3)
   '@solidjs/router':
     specifier: ^0.8.3
     version: 0.8.3(solid-js@1.8.3)
+  esbuild-wasm:
+    specifier: ^0.19.5
+    version: 0.19.5
   solid-js:
     specifier: ^1.8.3
     version: 1.8.3
@@ -1754,6 +1763,36 @@ packages:
   /@sideway/pinpoint@2.0.0:
     resolution: {integrity: sha512-RNiOoTPkptFtSVzQevY/yWtZwf/RxyVnPy/OcA9HBM3MlGDnBEYL5B41H0MTn0Uec8Hi+2qUtTfG2WWZBmMejQ==}
 
+  /@solid-primitives/local-store@1.1.4(solid-js@1.8.3):
+    resolution: {integrity: sha512-sjje0IdTNZ4bKN9c16Rw03QOAbgkk2UVYcqyvyP52xyORvN9VSWXQxUY9nxnxlJR7GCn5VfDZWfXMrqexnix1Q==}
+    peerDependencies:
+      solid-js: ^1.0.7
+    dependencies:
+      solid-js: 1.8.3
+    dev: false
+
+  /@solid-primitives/storage@2.1.1(solid-js@1.8.3)(solid-start@0.3.8):
+    resolution: {integrity: sha512-GDbELt4Xjp0ySsHZ+RHzup0YIl1epHz8A2SVQYNRZPgkIEJk0Fyrt2vW6Etym2yUruTt8yT3d8106LVb71KIWg==}
+    peerDependencies:
+      solid-js: ^1.6.12
+      solid-start: '>=0.2.26'
+    peerDependenciesMeta:
+      solid-start:
+        optional: true
+    dependencies:
+      '@solid-primitives/utils': 6.2.1(solid-js@1.8.3)
+      solid-js: 1.8.3
+      solid-start: 0.3.8(@solidjs/meta@0.28.6)(@solidjs/router@0.8.3)(solid-js@1.8.3)(solid-start-node@0.3.8)(vite@4.4.9)
+    dev: false
+
+  /@solid-primitives/utils@6.2.1(solid-js@1.8.3):
+    resolution: {integrity: sha512-TsecNzxiO5bLfzqb4OOuzfUmdOROcssuGqgh5rXMMaasoFZ3GoveUgdY1wcf17frMJM7kCNGNuK34EjErneZkg==}
+    peerDependencies:
+      solid-js: ^1.6.12
+    dependencies:
+      solid-js: 1.8.3
+    dev: false
+
   /@solidjs/meta@0.28.6(solid-js@1.8.3):
     resolution: {integrity: sha512-mplUfmp7tjGgDTiVbEAqkWDLpr0ZNyR1+OOETNyJt759MqPzh979X3oJUk8SZisGII0BNycmHDIGc0Shqx7bIg==}
     peerDependencies:
@@ -2371,6 +2410,12 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
+
+  /esbuild-wasm@0.19.5:
+    resolution: {integrity: sha512-7zmLLn2QCj93XfMmHtzrDJ1UBuOHB2CZz1ghoCEZiRajxjUvHsF40PnbzFIY/pmesqPRaEtEWii0uzsTbnAgrA==}
+    engines: {node: '>=12'}
+    hasBin: true
+    dev: false
 
   /esbuild-windows-32@0.14.54:
     resolution: {integrity: sha512-T+rdZW19ql9MjS7pixmZYVObd9G7kcaZo+sETqNH4RCkuuYSuv9AGHUVnPoP9hhuE1WM1ZimHz1CIBHBboLU7w==}

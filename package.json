@@ -21,8 +21,11 @@
     "@codemirror/lang-javascript": "^6.2.1",
     "@codemirror/state": "^6.3.1",
     "@codemirror/view": "^6.21.4",
+    "@solid-primitives/local-store": "^1.1.4",
+    "@solid-primitives/storage": "^2.1.1",
     "@solidjs/meta": "^0.28.6",
     "@solidjs/router": "^0.8.3",
+    "esbuild-wasm": "^0.19.5",
     "solid-js": "^1.8.3",
     "solid-start": "^0.3.8"
   },

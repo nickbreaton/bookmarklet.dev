@@ -1,19 +1,28 @@
-import { createEffect, createSignal, onCleanup, untrack } from "solid-js"
+import {
+  createEffect,
+  createSignal,
+  createResource,
+  onCleanup,
+  untrack,
+} from "solid-js"
 import { EditorState } from "@codemirror/state"
 import { EditorView, keymap, ViewUpdate } from "@codemirror/view"
 import { defaultKeymap } from "@codemirror/commands"
 
-export const Editor = () => {
+import { makePersisted } from "@solid-primitives/storage"
+import { useFile } from "./FileSystem/FileSystem"
+
+export const Editor = (props: { name: string }) => {
   const [parent, setParent] = createSignal<HTMLDivElement>()
-  const [doc, setDoc] = createSignal("hello")
+  const [file, setFile] = useFile(props.name)
 
   const startState = EditorState.create({
-    doc: untrack(() => doc()),
+    doc: untrack(() => file()),
     extensions: [
       keymap.of(defaultKeymap),
       EditorView.updateListener.of((v: ViewUpdate) => {
         if (v.docChanged) {
-          setDoc(v.state.doc.toString())
+          setFile(v.state.doc.toString())
         }
       }),
     ],
@@ -24,7 +33,6 @@ export const Editor = () => {
       state: startState,
       parent: parent(),
     })
-
     onCleanup(() => {
       view.destroy()
     })
@@ -33,7 +41,6 @@ export const Editor = () => {
   return (
     <div>
       <div ref={setParent} />
-      <pre>{doc()}</pre>
     </div>
   )
 }
