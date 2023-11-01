@@ -1,8 +1,7 @@
 import { JSX, createContext, createResource, useContext } from "solid-js"
 import { initialize, build } from "esbuild-wasm"
 import wasmURL from "esbuild-wasm/esbuild.wasm?url"
-import { useFile, useFiles } from "../FileSystem/FileSystem"
-import path from "path"
+import { useFiles } from "../FileSystemProvider/FileSystemProvider"
 
 const Context = createContext({
   code: (): string => "",
@@ -20,7 +19,7 @@ if (!window.esbuildReady) {
   })
 }
 
-export const Transformer = (props: { children: JSX.Element }) => {
+export const BundleProvider = (props: { children: JSX.Element }) => {
   const [files] = useFiles()
 
   const [result] = createResource(files, async (source, { value: prior }) => {
@@ -62,6 +61,6 @@ export const Transformer = (props: { children: JSX.Element }) => {
   )
 }
 
-export const useTransformedCode = () => {
+export const useBundle = () => {
   return useContext(Context).code
 }

@@ -15,7 +15,7 @@ const Context = createContext<[Accessor<Files>, Setter<Files>]>([
   () => {},
 ])
 
-export const FileSystem = (props: { children: JSX.Element }) => {
+export const FileSystemProvider = (props: { children: JSX.Element }) => {
   const [files, setFiles] = //makePersisted(
     createSignal<Files>({
       "index.js": `

@@ -1,14 +1,14 @@
 import { Editor } from "~/components/Editor"
-import { FileSystem } from "~/components/FileSystem/FileSystem"
+import { FileSystemProvider } from "~/components/FileSystemProvider/FileSystemProvider"
 import { Main } from "~/components/Main/Main"
-import { Transformer } from "~/components/Transformer/Transformer"
+import { BundleProvider } from "~/components/BundleProvider/BundleProvider"
 
 export default function Home() {
   return (
-    <FileSystem>
-      <Transformer>
+    <FileSystemProvider>
+      <BundleProvider>
         <Main />
-      </Transformer>
-    </FileSystem>
+      </BundleProvider>
+    </FileSystemProvider>
   )
 }

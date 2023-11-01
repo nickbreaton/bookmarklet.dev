@@ -1,8 +1,8 @@
 import { createEffect, useContext } from "solid-js"
-import { useTransformedCode } from "../Transformer/Transformer"
+import { useBundle } from "../BundleProvider/BundleProvider"
 
 export const Preview = () => {
-  const code = useTransformedCode()
+  const code = useBundle()
 
   createEffect(() => console.log(code()))
 

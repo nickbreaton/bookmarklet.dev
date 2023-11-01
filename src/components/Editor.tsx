@@ -10,7 +10,7 @@ import { EditorView, keymap, ViewUpdate } from "@codemirror/view"
 import { defaultKeymap } from "@codemirror/commands"
 
 import { makePersisted } from "@solid-primitives/storage"
-import { useFile } from "./FileSystem/FileSystem"
+import { useFile } from "./FileSystemProvider/FileSystemProvider"
 
 export const Editor = (props: { name: string }) => {
   const [parent, setParent] = createSignal<HTMLDivElement>()
