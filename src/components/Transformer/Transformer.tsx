@@ -33,18 +33,17 @@ export const Transformer = (props: { children: JSX.Element }) => {
       banner: { js: "(async () => {" },
       footer: { js: "})()" },
       entryPoints: ["index.js"],
+      absWorkingDir: "/",
       plugins: [
         {
           name: "virtual-loader",
           setup(build) {
             build.onResolve({ filter: /.*/ }, (args) => ({
-              path: args.path.replace(/^\.\//, ""),
-              namespace: "virtual",
+              path: "/" + args.path.replace(/^\.\//, ""),
             }))
-            build.onLoad(
-              { filter: /.*/, namespace: "virtual" },
-              ({ path }) => ({ contents: source[path] }),
-            )
+            build.onLoad({ filter: /.*/ }, ({ path }) => ({
+              contents: source[path.substring(1)],
+            }))
           },
         },
       ],

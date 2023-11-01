@@ -20,6 +20,7 @@ export const FileSystem = (props: { children: JSX.Element }) => {
     createSignal<Files>({
       "index.js": `
         import { log } from './logger.js'
+        await import('./logger.js')
         log()
       `,
       "logger.js": `
