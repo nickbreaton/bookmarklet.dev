@@ -30,6 +30,6 @@
     "solid-start": "^0.3.8"
   },
   "engines": {
-    "node": ">=18"
+    "node": "18"
   }
 }
