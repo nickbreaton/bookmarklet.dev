@@ -27,9 +27,11 @@ export const Transformer = (props: { children: JSX.Element }) => {
     await window.esbuildReady
 
     const result = await build({
-      format: "iife",
+      format: "esm",
       bundle: true,
       minify: true,
+      banner: { js: "(async () => {" },
+      footer: { js: "})()" },
       entryPoints: ["index.js"],
       plugins: [
         {
